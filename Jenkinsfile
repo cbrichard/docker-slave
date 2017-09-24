@@ -1,13 +1,11 @@
-pipeline {
-    agent any
+node {
+	stage 'Checkout'
+		checkout scm
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+	stage 'Build'
+		sh('docker build .')
 
-        checkout scm
-    }
+	stage 'Test'
+		sh('echo "Working on Test"')
 
-    stage('Build Image') {
-        sh('docker build -f Dockerfile')
-    }
 }
