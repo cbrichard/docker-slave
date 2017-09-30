@@ -3,9 +3,9 @@ node {
 		checkout scm
 
 	stage 'Build'
-		sh('docker build .')
+		sh('echo $HOME')
 
 	stage 'Test'
-		sh('echo "Working on Test"')
+		sh('whoami')
 
 }
